@@ -7,8 +7,11 @@ Solving knapsack problem using genetic algorithm (GAs).
 ### Initial population
 
 A1 -> {1,0,0,1,1,0}
+
 A2 -> {0,0,1,1,1,0}
+
 A3 -> {0,1,0,1,0,0}
+
 A4 -> {0,1,1,0,0,1}
 
 ### Max weight
