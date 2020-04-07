@@ -29,6 +29,10 @@ A4 -> {0,1,1,0,0,1}
 | Bottle       | 9      | 8     |
 | Food         | 20     | 17    |
 
+## Run
+
+> python3 knapsack.py
+
 ## License
 
 Distributed under the MIT license. See [LICENSE](./LICENSE.md) for details.
