@@ -79,11 +79,11 @@ def createGenerations():
                 sub_populations.insert(0, (child))
         populations = filter(lambda x: getTotalWeight(x)
                              <= 30, sub_populations)
-    return sorted(list(populations), key=lambda x: getTotalReward(x),  reverse=True)
+    return (sorted(list(populations), key=lambda x: getTotalReward(x),  reverse=True))
 
 
-def getBestGeneration():
-    generation = (createGenerations())
+def getItemsBackpack():
+    generation = createGenerations()
 
     return list(
         zip(
@@ -91,13 +91,28 @@ def getBestGeneration():
             weightBackpacks(generation),
             rewardsBackpacks(generation)
         )
-    )[0]
+    )
+
+
+def getBestGeneration():
+    backpack = getItemsBackpack()[0]
+    backpackWithValues, weight, reward = getItemsBackpack()[0]
+    backpackWithName = []
+
+    for i, item in enumerate(backpackWithValues):
+        if item == 1:
+            backpackWithName.append(BACKPACK[i][0])
+
+    return backpackWithValues, backpackWithName, weight, reward
 
 
 def main():
-    print("the best items to choose is: {result}".format(
-        result=getBestGeneration())
-    )
+    values, names, weight, reward = getBestGeneration()
+
+    print("backpack values: {values}".format(values=values))
+    print("backpack name: {names}".format(names=names))
+    print("backpack weight: {weight}".format(weight=weight))
+    print("backpack reward: {reward}".format(reward=reward))
 
 
 if __name__ == "__main__":
