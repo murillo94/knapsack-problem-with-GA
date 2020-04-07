@@ -33,17 +33,17 @@ def rewardsBackpacks(backpacks):
     return map(getTotalReward, backpacks)
 
 
-def getSelection(selections):
+def getSelections(selections):
     minimum = 1
     index = random.randint(0, len(selections) - minimum)
-    a = selections[index][0]
+    firstSelection = selections[index][0]
     selections.pop(index)
 
     index = random.randint(0, len(selections) - minimum)
-    b = selections[index][0]
+    secondSelection = selections[index][0]
     selections.pop(index)
 
-    return a, b
+    return firstSelection, secondSelection
 
 
 def createGenerations():
@@ -67,15 +67,15 @@ def createGenerations():
         sub_populations = []
 
         while len(selections) > 2:
-            a, b = getSelection(selections)
+            firstSelection, secondSelection = getSelections(selections)
 
             for i in range(int(generations/2)):
                 child = []
                 for i in range(6):
                     if random.randint(0, 1) == 1:
-                        child.insert(0, (a[i]))
+                        child.insert(0, (firstSelection[i]))
                     else:
-                        child.insert(0, (b[i]))
+                        child.insert(0, (secondSelection[i]))
                 sub_populations.insert(0, (child))
         populations = filter(lambda x: getTotalWeight(x)
                              <= 30, sub_populations)
