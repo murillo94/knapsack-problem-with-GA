@@ -29,9 +29,15 @@ A4 -> {0,1,1,0,0,1}
 | Bottle       | 9      | 8     |
 | Food         | 20     | 17    |
 
-## Run
+## Usage
+
+Run in terminal:
 
 > python3 knapsack.py
+
+## Example
+
+![](example.gif)
 
 ## License
 
