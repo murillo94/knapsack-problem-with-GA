@@ -50,34 +50,5 @@ func createGenerations() {
 	generations = 50
 	populations = getFirstPopulation(generations)
 
-	for i := 0; i < lifeCycle; i++ {
-    weights = createWeightBackpacks(populations)
-    rewards = createRewardsBackpacks(populations)
-    selections = zip(populations, weights, rewards)
-    selections = filter(lambda x: x[1] <= 30, selections)
-    selections = sorted(list(selections), key=lambda x: x[2],  reverse=True)
-    selections = selections[:int(generations/2)]
-    population := []int{}
 
-		for i := 2; i < selections; i-- {
-				index = random.randint(0, len(selections) - 1)
-				a = selections[index][0]
-				selections.pop(index)
-
-				index = random.randint(0, len(selections) - 1)
-				b = selections[index][0]
-				selections.pop(index)
-
-				for i in range(int(size/2)):
-					child = []
-					for i in range(6):
-						if random.randint(0, 1) == 1:
-							child.append(a[i])
-						else:
-							child.append(b[i])
-					childs.append(child)
-		}
-		populations = filter(lambda x: calculateWeight(x) <= 30, childs)
-	}
-  return sorted(list(populations), key=lambda x: calculateReward(x),  reverse=True)
 }
